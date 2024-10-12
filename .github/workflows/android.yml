@@ -1,4 +1,4 @@
-on: workflow_dispatch
+on: push
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -19,11 +19,6 @@ jobs:
       - run: |
           npm ci
           npm test
-          npm install -g cordova
-          cordova platform add --link /path/to/cordova-android
-          cordova platform rm android
-          cordova platform add android
-          
       - run: cordova build android
       - uses: actions/upload-artifact@main
         with:
