@@ -17,7 +17,7 @@ jobs:
         with:
           node-version: 20
       - run: |
-          npm install
+          npm ci
           npm test
           npm install -g cordova
           cordova platform add --link /path/to/cordova-android
