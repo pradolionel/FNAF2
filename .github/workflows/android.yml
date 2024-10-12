@@ -17,11 +17,13 @@ jobs:
         with:
           node-version: 20
       - run: |
+          npm install
+          npm test
+          npm install -g cordova
           cordova platform add --link /path/to/cordova-android
           cordova platform rm android
           cordova platform add android
-          npm install
-          npm test
+          
       - run: cordova build android
       - uses: actions/upload-artifact@main
         with:
